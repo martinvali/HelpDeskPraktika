@@ -13,12 +13,10 @@ namespace AgileWorks.Controllers
         {
             _context = context;
         }
-
         public async Task<IActionResult> Index()
         {
             return View(await _context.Ticket.ToListAsync());
         }
-
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -35,14 +33,14 @@ namespace AgileWorks.Controllers
 
             return View(ticket);
         }
-
         public IActionResult Create()
         {
             return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Description,DateCreated,DueDate")] Ticket ticket)
+        public async Task<IActionResult> Create([Bind("Id,Description,DueDate")] Ticket ticket)
         {
             if (ModelState.IsValid)
             {
@@ -52,7 +50,6 @@ namespace AgileWorks.Controllers
             }
             return View(ticket);
         }
-
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -70,7 +67,7 @@ namespace AgileWorks.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Description,DateCreated,DueDate")] Ticket ticket)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Description,DueDate")] Ticket ticket)
         {
             if (id != ticket.Id)
             {
@@ -99,7 +96,6 @@ namespace AgileWorks.Controllers
             }
             return View(ticket);
         }
-
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -116,7 +112,6 @@ namespace AgileWorks.Controllers
 
             return View(ticket);
         }
-
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
