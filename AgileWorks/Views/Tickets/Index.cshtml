@@ -3,12 +3,10 @@
 @{
     ViewData["Title"] = "Index";
 }
-
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+<div class="d-flex justify-content-between align-items-center mt-5 mb-2">
+    <h1>All tickets</h1>
+    <a class="btn btn-primary" asp-action="Create">New ticket</a>
+</div>
 <table class="table">
     <thead>
         <tr>
