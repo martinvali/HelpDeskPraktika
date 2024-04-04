@@ -9,11 +9,15 @@ namespace AgileWorks.Models {
         public int Id { get; set; }
 
         [Required]
+
         public string? Description { get;set; }
 
         [Required]
         [ScaffoldColumn(false)]
+        [Display(Name="Created at")]
         public DateTime DateCreated { get;set; }
+
+        [Display(Name = "Due")]
         public DateTime DueDate { get;set; }
     }
 }
