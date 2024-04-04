@@ -15,6 +15,7 @@ namespace AgileWorks.Controllers
         }
         public async Task<IActionResult> Index()
         {
+            ViewData["Title"] = "All Tickets";
             return View(await _context.Ticket.ToListAsync());
         }
         public async Task<IActionResult> Details(int? id)
@@ -30,11 +31,12 @@ namespace AgileWorks.Controllers
             {
                 return NotFound();
             }
-
+            ViewData["Title"] = "Details";
             return View(ticket);
         }
         public IActionResult Create()
         {
+            ViewData["Title"] = "Create";
             return View();
         }
 
@@ -62,6 +64,7 @@ namespace AgileWorks.Controllers
             {
                 return NotFound();
             }
+            ViewData["Title"] = "Edit";
             return View(ticket);
         }
 
@@ -109,7 +112,7 @@ namespace AgileWorks.Controllers
             {
                 return NotFound();
             }
-
+            ViewData["Title"] = "Delete";
             return View(ticket);
         }
         [HttpPost, ActionName("Delete")]
