@@ -18,3 +18,7 @@ html, body {
 .form-group {
     margin-bottom: 1rem;
 }
+
+.save-button {
+    margin-right: 0.5rem;
+}
