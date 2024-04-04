@@ -10,3 +10,11 @@ html, body {
 .text-right {
     text-align: right;
 }
+
+.control-label {
+    margin-bottom: 0.2rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
