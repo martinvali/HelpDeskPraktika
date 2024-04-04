@@ -3,7 +3,6 @@
 <partial name="_PageHeader" />
 
 <div>
-    <h4>Ticket</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -21,6 +20,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-outline-primary mr-2">Edit</a>
     <a asp-action="Index" class="btn btn-outline-primary">Back to List</a>
 </div>
