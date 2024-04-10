@@ -7,6 +7,18 @@ html, body {
     width: 100%;
 }
 
+td {
+    background-color: rgba(0,0,0,0) !important;
+}
+
+ul {
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
 .text-right {
     text-align: right;
 }
@@ -22,6 +34,35 @@ html, body {
 .mr-2 {
     margin-right: 0.5rem;
 }
+
+
+.ticket-item {
+    border-radius: 5px;
+    border: 1px solid #f1f1f1;
+    padding: 20px;
+}
+
+.highlighted-ticket {
+    border: 2px solid red;
+}
+
+.highlighted-ticket .ticket-subheading {
+    color: red;
+}
+
+.ticket-item:not(:last-of-type) {
+    margin-bottom: 1.2rem;
+}
+
+.ticket-subheading {
+    font-weight: 600;
+    color: #66a593;
+}
+
+.ticket-subparagraph {
+    margin-bottom: 0;
+}
+
 
 @media screen and (min-width: 768px) {
     .form-control:not(#DueDate) {

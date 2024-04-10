@@ -5,6 +5,7 @@ namespace AgileWorks.Models {
         
         public Ticket() {
             DateCreated = DateTime.Now;
+            MarkedAsUrgent = false;
         }
         public int Id { get; set; }
 
@@ -19,5 +20,9 @@ namespace AgileWorks.Models {
 
         [Display(Name = "Due")]
         public DateTime DueDate { get;set; }
+
+        [Required]
+        [ScaffoldColumn(false)]
+        public bool MarkedAsUrgent { get; set; }
     }
 }

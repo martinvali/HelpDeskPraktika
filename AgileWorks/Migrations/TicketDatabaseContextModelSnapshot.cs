@@ -40,6 +40,9 @@ namespace AgileWorks.Migrations
                     b.Property<DateTime>("DueDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<bool>("MarkedAsUrgent")
+                        .HasColumnType("bit");
+
                     b.HasKey("Id");
 
                     b.ToTable("Ticket");

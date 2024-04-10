@@ -1,39 +1,13 @@
 ﻿@model IEnumerable<AgileWorks.Models.Ticket>
 
 <partial name="_PageHeader" />
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DueDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DateCreated)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
+
+<ul>
 @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DueDate)
-            </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DateCreated)
-                </td>
-            <td class="text-right">
-                <a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@item.Id">Edit</a> 
-                <a class="btn btn-outline-primary" asp-action="Details" asp-route-id="@item.Id">Details</a> 
-                <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
+   <li class="ticket-item @(item.MarkedAsUrgent ? "highlighted-ticket" : "")">
+       <p class="ticket-description">@item.Description</p>
+       <p class="ticket-subparagraph ticket-duedate"><span class="ticket-subheading">Due Date: </span>@item.DueDate</p>
+       <p class="ticket-subparagraph ticket-date-created"><span class="ticket-subheading">Date Created: </span>@item.DateCreated</p>
+   </li>
 }
-    </tbody>
-</table>
+</ul>

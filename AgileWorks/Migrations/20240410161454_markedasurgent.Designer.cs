@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AgileWorks.Migrations
 {
     [DbContext(typeof(TicketDatabaseContext))]
-    [Migration("20240330163206_addTicketModel")]
-    partial class addTicketModel
+    [Migration("20240410161454_markedasurgent")]
+    partial class markedasurgent
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -42,6 +42,9 @@ namespace AgileWorks.Migrations
 
                     b.Property<DateTime>("DueDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<bool>("MarkedAsUrgent")
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 

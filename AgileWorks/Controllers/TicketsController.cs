@@ -16,7 +16,17 @@ namespace AgileWorks.Controllers
         public async Task<IActionResult> Index()
         {
             ViewData["Title"] = "All Tickets";
-            return View(await _context.Ticket.ToListAsync());
+            List<Ticket> tickets = await _context.Ticket.ToListAsync();
+
+            tickets.ForEach((ticket) => {
+                DateTime dueDate = ticket.DueDate;
+                DateTime targetTIme = DateTime.Now.AddHours(1);
+
+                if(dueDate < targetTIme) {
+                    ticket.MarkedAsUrgent = true;
+                }
+            });
+            return View(tickets);
         }
         public async Task<IActionResult> Details(int? id)
         {
@@ -126,7 +136,7 @@ namespace AgileWorks.Controllers
             }
 
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(Index)); 
         }
 
         private bool TicketExists(int id)
