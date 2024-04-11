@@ -2,8 +2,11 @@
 
 <partial name="_PageHeader" />
 
+@if (Model.Count() == 0) {
+    <p>There are no tickets at the moment.</p>
+}
 <ul>
-@foreach (var item in Model) {
+    @foreach (var item in Model) {
    <li class="ticket-item @(item.MarkedAsUrgent ? "highlighted-ticket" : "")">
        <p class="ticket-description">@item.Description</p>
        <p class="ticket-subparagraph ticket-duedate"><span class="ticket-subheading">Due Date: </span>@item.DueDate</p>
