@@ -20,13 +20,15 @@ namespace AgileWorks.Controllers
 
             tickets.ForEach((ticket) => {
                 DateTime dueDate = ticket.DueDate;
-                DateTime targetTIme = DateTime.Now.AddHours(1);
+                DateTime targetTime = DateTime.Now.AddHours(1);
 
-                if(dueDate < targetTIme) {
+                if(dueDate < targetTime) {
                     ticket.MarkedAsUrgent = true;
                 }
             });
-            return View(tickets);
+
+            IEnumerable<Ticket> ascendinglyOrderedTickets = tickets.OrderBy((ticket) => ticket.DueDate);
+            return View(ascendinglyOrderedTickets);
         }
         public IActionResult Create()
         {
