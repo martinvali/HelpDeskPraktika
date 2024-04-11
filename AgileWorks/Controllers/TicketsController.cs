@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using AgileWorks.Data;
 using AgileWorks.Models;
+using AgileWorks.Helpers;
 
 namespace AgileWorks.Controllers
 {
@@ -19,12 +20,8 @@ namespace AgileWorks.Controllers
             List<Ticket> tickets = await _context.Ticket.ToListAsync();
 
             tickets.ForEach((ticket) => {
-                DateTime dueDate = ticket.DueDate;
                 DateTime targetTime = DateTime.Now.AddHours(1);
-
-                if(dueDate < targetTime) {
-                    ticket.MarkedAsUrgent = true;
-                }
+                ticket = TicketHelper.MarkAsUrgentBasedOnTargetTime(ticket, targetTime);
             });
 
             IEnumerable<Ticket> ascendinglyOrderedTickets = tickets.OrderBy((ticket) => ticket.DueDate);
