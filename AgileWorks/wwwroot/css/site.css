@@ -63,6 +63,20 @@ li {
     margin-bottom: 0;
 }
 
+.ticket-date-created {
+    margin-bottom: 0.5rem;
+}
+
+.highlighted-ticket .delete-button {
+    color:red;
+    border-color: red;
+}
+
+.highlighted-ticket .delete-button:hover {
+    background-color: red;
+    color: white;
+}
+
 
 @media screen and (min-width: 768px) {
     .form-control:not(#DueDate) {

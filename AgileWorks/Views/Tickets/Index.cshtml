@@ -8,6 +8,10 @@
        <p class="ticket-description">@item.Description</p>
        <p class="ticket-subparagraph ticket-duedate"><span class="ticket-subheading">Due Date: </span>@item.DueDate</p>
        <p class="ticket-subparagraph ticket-date-created"><span class="ticket-subheading">Date Created: </span>@item.DateCreated</p>
+       <form asp-action="Delete">
+          <input type="hidden" asp-for="@item.Id" name="Id" />
+          <input type="submit" value="Mark as done" class="btn btn-outline-primary mr-2 delete-button" />
+       </form>
    </li>
 }
 </ul>
